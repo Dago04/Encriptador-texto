@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { FaExclamationCircle } from "react-icons/fa";
 
-export const Main = ({ textoAside, setTextoAside }) => {
+export const Main = ({ setTextoAside }) => {
     const [texto, setTexto] = useState(""); // Estado del texto
 
-    const removeAccents = (str) => {
+    const removerAcento = (str) => {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-zA-Z0-9 ]/g, ""); // Remueve el acento de las palabras
     }
-    const encryptText = (str) => {
+    const encriptarTexto = (str) => {
         return str
             .replace(/e/g, "enter")
             .replace(/i/g, "imes")
@@ -15,7 +15,7 @@ export const Main = ({ textoAside, setTextoAside }) => {
             .replace(/o/g, "ober")
             .replace(/u/g, "ufat");
     };
-    const decryptText = (str) => {
+    const desencriptarTexto = (str) => {
         return str
             .replace(/enter/g, "e")
             .replace(/imes/g, "i")
@@ -36,17 +36,17 @@ export const Main = ({ textoAside, setTextoAside }) => {
             return;
         }
 
-        const textoLimpiado = removeAccents(texto.toLowerCase()); // Remueve los acentos del texto y lo convierte en minisculas
-        const encryptedText = encryptText(textoLimpiado); // Encripta el texto
-        setTextoAside(encryptedText); // Guarda el texto encriptado en el estado del componente Aside
+        const textoLimpiado = removerAcento(texto.toLowerCase()); // Remueve los acentos del texto y lo convierte en minisculas
+        const textoEncriptado = encriptarTexto(textoLimpiado); // Encripta el texto
+        setTextoAside(textoEncriptado); // Guarda el texto encriptado en el estado del componente Aside
     };
     const handleDecrypt = () => {
         if (texto === "") {
             setTextoAside("No hay nada que desencriptar");
             return;
         }
-        const decryptedText = decryptText(texto); // Desencripta el texto
-        setTextoAside(decryptedText); // Guarda el texto desencriptado en el estado del componente Aside
+        const textoDesencriptado = desencriptarTexto(texto); // Desencripta el texto
+        setTextoAside(textoDesencriptado); // Guarda el texto desencriptado en el estado del componente Aside
     }
 
     return (

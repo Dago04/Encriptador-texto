@@ -7,7 +7,7 @@ function App() {
     <main className='bg-[#D8EFD3]  min-h-screen'>
       <Header />
       <section className="w-full container px-5 py-10 mx-auto mt-5 flex flex-col md:flex-row  items-cente justify-center gap-10">
-        <Main setTextoAside={setTextoAside} textoAside={textoAside} />
+        <Main setTextoAside={setTextoAside} />
         <Aside textoAside={textoAside} />
       </section>
     </main >

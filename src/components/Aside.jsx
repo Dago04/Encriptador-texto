@@ -13,7 +13,6 @@ const copyToClipboard = (text) => {
 export const Aside = ({ textoAside }) => {
     const handleCopy = () => {
         copyToClipboard(textoAside);
-        console.log("Copiado");
     };
     return (
         <aside
