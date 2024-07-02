@@ -63,7 +63,7 @@ export const Main = ({ setTextoAside }) => {
 
             <div className="mt-auto mb-3 flex items-center gap-2 text-gray-900/80">
                 <FaExclamationCircle size={15} />
-                <p className="text-sm">Solo letras minisculas y sin acentos</p>
+                <p className="text-sm">Solo letras minúsculas y sin acentos</p>
             </div>
             <div className=" w-full max-w-[680px] flex flex-col sm:flex-row justify-center items-center gap-6">
                 <button
